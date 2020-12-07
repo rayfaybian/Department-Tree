@@ -1,0 +1,15 @@
+C:\Coding\C#\DepartmentTree\DepartmentTreeLogic\bin\Debug\DepartmentTreeLogic.dll
+C:\Coding\C#\DepartmentTree\DepartmentTreeLogic\bin\Debug\DepartmentTreeLogic.pdb
+C:\Coding\C#\DepartmentTree\DepartmentTreeLogic\bin\Debug\DepartmentTreeData.dll
+C:\Coding\C#\DepartmentTree\DepartmentTreeLogic\bin\Debug\EntityFramework.dll
+C:\Coding\C#\DepartmentTree\DepartmentTreeLogic\bin\Debug\DepartmentTreeData.pdb
+C:\Coding\C#\DepartmentTree\DepartmentTreeLogic\bin\Debug\DepartmentTreeData.dll.config
+C:\Coding\C#\DepartmentTree\DepartmentTreeLogic\bin\Debug\EntityFramework.xml
+C:\Coding\C#\DepartmentTree\DepartmentTreeLogic\obj\Debug\DepartmentTreeLogic.csprojAssemblyReference.cache
+C:\Coding\C#\DepartmentTree\DepartmentTreeLogic\obj\Debug\DepartmentTreeLogic.csproj.CoreCompileInputs.cache
+C:\Coding\C#\DepartmentTree\DepartmentTreeLogic\obj\Debug\DepartmentTreeLogic.csproj.CopyComplete
+C:\Coding\C#\DepartmentTree\DepartmentTreeLogic\obj\Debug\DepartmentTreeLogic.dll
+C:\Coding\C#\DepartmentTree\DepartmentTreeLogic\obj\Debug\DepartmentTreeLogic.pdb
+C:\Coding\C#\DepartmentTree\DepartmentTreeLogic\bin\Debug\DepartmentTreeLogic.dll.config
+C:\Coding\C#\DepartmentTree\DepartmentTreeLogic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Coding\C#\DepartmentTree\DepartmentTreeLogic\bin\Debug\EntityFramework.SqlServer.xml
