@@ -1,14 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="departmentsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="departmentsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="departments" EntityType="departmentsModel.departments" />
+    <AssociationSet Name="FK_departments_departments" Association="departmentsModel.FK_departments_departments">
+      <End Role="departments" EntitySet="departments" />
+      <End Role="departments1" EntitySet="departments" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="departments">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="parent_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="parent_id" Type="Int32" />
+    <NavigationProperty Name="departments1" Relationship="departmentsModel.FK_departments_departments" FromRole="departments" ToRole="departments1" />
+    <NavigationProperty Name="departments2" Relationship="departmentsModel.FK_departments_departments" FromRole="departments1" ToRole="departments" />
   </EntityType>
-  <EntityContainer Name="departmentsEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="departments" EntityType="Self.departments" />
-  </EntityContainer>
+  <Association Name="FK_departments_departments">
+    <End Type="departmentsModel.departments" Role="departments" Multiplicity="0..1" />
+    <End Type="departmentsModel.departments" Role="departments1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departments">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="departments1">
+        <PropertyRef Name="parent_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

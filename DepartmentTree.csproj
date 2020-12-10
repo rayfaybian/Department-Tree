@@ -92,6 +92,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="DepartmentTreeData\DepartmentTreeData.csproj">
+      <Project>{C0FE6A7A-411B-44F4-84F6-BC47F58B568F}</Project>
+      <Name>DepartmentTreeData</Name>
+    </ProjectReference>
     <ProjectReference Include="DepartmentTreeLogic\DepartmentTreeLogic.csproj">
       <Project>{744653dd-6d80-44a6-b64b-ee47a3c87222}</Project>
       <Name>DepartmentTreeLogic</Name>

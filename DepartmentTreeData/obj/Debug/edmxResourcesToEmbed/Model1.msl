@@ -4,9 +4,9 @@
     <EntitySetMapping Name="departments">
       <EntityTypeMapping TypeName="departmentsModel.departments">
         <MappingFragment StoreEntitySet="departments">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

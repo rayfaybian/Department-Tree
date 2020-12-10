@@ -6,9 +6,25 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="parent_id" Type="int" Nullable="false" />
+    <Property Name="parent_id" Type="int" />
   </EntityType>
+  <Association Name="FK_departments_departments">
+    <End Role="departments" Type="Self.departments" Multiplicity="0..1" />
+    <End Role="departments1" Type="Self.departments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departments">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="departments1">
+        <PropertyRef Name="parent_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="departmentsModelStoreContainer">
     <EntitySet Name="departments" EntityType="Self.departments" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_departments_departments" Association="Self.FK_departments_departments">
+      <End Role="departments" EntitySet="departments" />
+      <End Role="departments1" EntitySet="departments" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

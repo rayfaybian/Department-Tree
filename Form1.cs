@@ -40,7 +40,7 @@ namespace DepartmentTree
 
             foreach (var item in departments)
             {
-                departmentNames.Add(item.Name);
+                departmentNames.Add(item.name);
             }
 
             departmentNames.Add("_Neu");
@@ -76,13 +76,13 @@ namespace DepartmentTree
             treeViewBox.Nodes.Clear();
             treeViewBox.BeginUpdate();
 
-            var parentless = controller.LoadDepartments().Select(x => x).Where(x => x.Parent_Id == 0).OrderBy(x => x.Name);
+            var parentless = controller.LoadDepartments().Select(x => x).Where(x => x.parent_id == null).OrderBy(x => x.name);
 
             foreach (var item in parentless)
             {
-                var node = new TreeNode(item.Name);
+                var node = new TreeNode(item.name);
                 treeViewBox.Nodes.Add(node);
-                AddChildDepartment(item.Id, ref node);
+                AddChildDepartment(item.id, ref node);
             }
 
             treeViewBox.EndUpdate();
@@ -90,13 +90,13 @@ namespace DepartmentTree
 
         private void AddChildDepartment(int id, ref TreeNode parentNode)
         {
-            var childDepartments = controller.LoadDepartments().Select(x => x).Where(x => x.Parent_Id == id).OrderBy(x => x.Name);
+            var childDepartments = controller.LoadDepartments().Select(x => x).Where(x => x.parent_id == id).OrderBy(x => x.name);
 
             foreach (var item in childDepartments)
             {
-                var node = new TreeNode(item.Name);
+                var node = new TreeNode(item.name);
                 parentNode.Nodes.Add(node);
-                AddChildDepartment(item.Id, ref node);
+                AddChildDepartment(item.id, ref node);
             }
         }
 

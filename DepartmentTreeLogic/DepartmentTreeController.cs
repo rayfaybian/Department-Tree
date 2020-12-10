@@ -15,13 +15,13 @@ namespace DepartmentTreeLogic
             entity = new departmentsEntities();
         }
 
-        public List<department> LoadDepartments()
+        public List<departments> LoadDepartments()
         {
-            List<department> departmentList = new List<department>();
+            List<departments> departmentList = new List<departments>();
 
             foreach (var element in entity.departments)
-            {
-                var newDepartment = new department(element.id, element.name, element.parent_id);
+            {                
+                var newDepartment = new departments() { id = element.id, name = element.name, parent_id = element.parent_id };
 
                 departmentList.Add(newDepartment);
             }
@@ -30,11 +30,12 @@ namespace DepartmentTreeLogic
 
         public void AddNewDepartdment(string name, string parent)
         {
-            int parentId;
+            int? parentId;
 
             if (parent.Equals("_Neu"))
             {
-                parentId = 0;
+
+                parentId = null;
             }
             else
             {
@@ -48,27 +49,22 @@ namespace DepartmentTreeLogic
 
         public void DeleteSelection(string name)
         {
-            var id = FindID(name);
-            int childId = id;
+            var depToDelete = entity.departments.FirstOrDefault(x => x.name == name);
+            DeleteDep(depToDelete);
 
-            foreach (var item in entity.departments)
-            {
-                if (item.id.Equals(id))
-                {
-                    entity.departments.Remove(item);
-                }
-                if (item.parent_id.Equals(id))
-                {
-                    childId = item.id;
-                    entity.departments.Remove(item);
-                }
-                if (childId.Equals(item.id))
-                {
-                    entity.departments.Remove(item);
-                }
-
-            }
             entity.SaveChanges();
+        }
+
+        private void DeleteDep(departments dep)
+        {
+            var childDeps = dep.departments1.ToList();
+
+            foreach(var childDep in childDeps)
+            {
+                DeleteDep(childDep);
+            }
+
+            entity.departments.Remove(dep);
         }
 
         private int FindID(string name)

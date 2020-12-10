@@ -14,8 +14,18 @@ namespace DepartmentTreeData
     
     public partial class departments
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public departments()
+        {
+            this.departments1 = new HashSet<departments>();
+        }
+    
         public int id { get; set; }
         public string name { get; set; }
-        public int parent_id { get; set; }
+        public Nullable<int> parent_id { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<departments> departments1 { get; set; }
+        public virtual departments departments2 { get; set; }
     }
 }
